@@ -23,7 +23,7 @@ app.use(express.json());
 
 
 async function readConfig() {
-    const result = await get('/config.txt', {
+    const result = await get('config.txt', {
         access: 'private',
         useCache: false
     });
@@ -66,7 +66,7 @@ app.patch("/api/url", async (req, res) => {
             return res.status(400).send("Invalid URL");
         }
 
-        const blob = await put('/config.txt', url.trim(), {
+        const blob = await put('config.txt', url.trim(), {
             access: 'private',
             allowOverwrite: true,
             contentType: 'text/plain'
