@@ -43,6 +43,7 @@ app.get("/tasks/:id", async (req, res) => {
             ? url
             : `http://${url}`;
 
+        res.set('Cache-Control', 'no-store');
         return res.redirect(
             `${baseUrl}/task/${encodeURIComponent(req.params.id)}`
         );
