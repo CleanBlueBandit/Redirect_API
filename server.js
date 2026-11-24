@@ -28,7 +28,7 @@ async function readConfig() {
         useCache: false
     });
 
-    if (!result || result.statusCode !== 200) return null;
+    if (!result) return null;
 
     return await new Response(result.stream).text();
 }
